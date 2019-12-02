@@ -1,4 +1,4 @@
-[Home](https://aplusbot.tech/) | [Features](https://aplusbot.tech/features/)
+[Home](https://aplusbot.tech) | [Features](https://aplusbot.tech/features)
 # A Discord bot for every community. 
 
 An intuitive, feature rich, seamless Discord bot for every kind of community small and large.
