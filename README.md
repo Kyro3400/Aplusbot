@@ -3,7 +3,7 @@
 
 An intuitive, feature rich, seamless Discord bot for every kind of community small and large.
 
-![](http://cdn.treverg.tools/mobile/i/IMG_3h3opr.jpg)
+<div style="text-align:center"><img src="http://cdn.treverg.tools/mobile/i/IMG_3h3opr.jpg" /></div>
 
 The Alpha is online!
 
