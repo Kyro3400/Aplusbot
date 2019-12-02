@@ -1,5 +1,5 @@
 [Home](https://aplusbot.tech/) | [Features](https://aplusbot.tech/features/)
-# APlus; A Discord bot for every community. 
+# A Discord bot for every community. 
 
 An intuitive, feature rich, seamless Discord bot for every kind of community small and large.
 
