@@ -1,9 +1,9 @@
 [Home](https://aplusbot.tech/) | [Features](https://aplusbot.tech/features/)
-# APlus#2807 
+# APlus; A Discord bot for every community. 
 
 An intuitive, feature rich, seamless Discord bot for every kind of community small and large.
 
-[image](http://cdn.treverg.tools/mobile/i/IMG_3h3opr.jpg)
+![](http://cdn.treverg.tools/mobile/i/IMG_3h3opr.jpg)
 
 The Alpha is online!
 
