@@ -1,4 +1,4 @@
-[Home](https://aplusbot.tech) [Features](https://aplusbot.tech/features)
+[Home](https://aplusbot.tech) | [Features](https://aplusbot.tech/features)
 
 # Features
 
