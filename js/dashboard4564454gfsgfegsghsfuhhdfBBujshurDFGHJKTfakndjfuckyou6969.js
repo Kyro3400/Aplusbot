@@ -54,7 +54,8 @@ return uId;
                 authorization: `Bearer ${token}`
             }
         })
-      let response = await res.json();
+      let responseO = await res.json();
+			let response = JSON.stringify(responseO);
                 console.log(response);
 		                var node = document.getElementById('guilds');	
 			response.forEach(async(guild) => {
