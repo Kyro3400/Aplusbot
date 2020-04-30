@@ -48,14 +48,14 @@ window.onload = async() => {
           let id = await checkUser();	
           document.getElementById('tophi').innerText = 'Select A Server';
           async function listGuilds() {
-              let token = window.localStorage.getItem('token');   
-              let res = await fetch('https://discordapp.com/api/users/@me/guilds', {
-              headers: {
-                  authorization: `Bearer ${token}`
-              }
-          })
-        let responseO = await res.json();
-              let response = JSON.parse(responseO);
+       var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://discordapp.com/api/users/@me/guilds');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + window.localStorage.token);
+            xhr.onload = async function(){
+                console.log('Loaded!');
+
+                var response = JSON.parse(xhr.response);
                   console.log(response);
                           var ul = document.getElementById('guilds');	
               response.forEach(async(guild) => {
