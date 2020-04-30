@@ -47,7 +47,6 @@ window.onload = async() => {
           
           let id = await checkUser();	
           document.getElementById('tophi').innerText = 'Select A Server';
-          async function listGuilds() {
        var xhr = new XMLHttpRequest();
             xhr.open('GET', 'https://discordapp.com/api/users/@me/guilds');
             xhr.setRequestHeader('Content-Type', 'application/json');
@@ -57,7 +56,7 @@ window.onload = async() => {
 
                 var response = JSON.parse(xhr.response);
                   console.log(response);
-                          var ul = document.getElementById('guilds');	
+                          var node = document.getElementById('guilds');	
               response.forEach(async(guild) => {
                       if((guild.permissions & 0x8) === 0x8){
               var option = document.createElement('option');
@@ -68,12 +67,10 @@ window.onload = async() => {
                   });
   
               document.getElementById('guilds').disabled = false;
-              document.getElementById('selectButton').disabled = false
-                xhr.send();
+              document.getElementById('selectButton').disabled = false;
                 }
-          }
-          await listGuilds();
-      
+                xhr.send()
+
       
                   async function guildFetch(){
                   document.getElementById('guilds').disabled = true;
