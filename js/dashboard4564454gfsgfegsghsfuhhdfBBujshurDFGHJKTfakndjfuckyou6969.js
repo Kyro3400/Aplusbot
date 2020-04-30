@@ -57,13 +57,14 @@ return uId;
       let responseO = await res.json();
 			let response = JSON.parse(responseO);
                 console.log(response);
-		                var node = document.getElementById('guilds');	
+		                var ul = document.getElementById('guilds');	
 			response.forEach(async(guild) => {
                     if((guild.permissions & 0x8) === 0x8){
-                        var option = document.createElement('option');
-                        option.text = guild.name;
-                        option.value = guild.id;
-                        node.add(option);
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(guild.name));
+  li.setAttribute("text", guild.name);
+  li.setAttribute("value" guild.id);
+  ul.appendChild(li);
                     }
                 });
 
