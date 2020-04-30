@@ -70,7 +70,7 @@ window.onload = async() => {
   
               document.getElementById('guilds').disabled = false;
               document.getElementById('selectButton').disabled = false;
-  
+                }
           }
           await listGuilds();
       
@@ -94,4 +94,4 @@ window.onload = async() => {
               
               }
 
-            }        
+            }
