@@ -51,7 +51,7 @@ return uId;
 			let token = window.localStorage.getItem('token');   
 			let res = await fetch('https://discordapp.com/api/users/@me/guilds', {
             headers: {
-                authorization: `${tokenType} ${accessToken}`
+                authorization: `Bearer ${accessToken}`
             }
         })
       let response = await res.json();
