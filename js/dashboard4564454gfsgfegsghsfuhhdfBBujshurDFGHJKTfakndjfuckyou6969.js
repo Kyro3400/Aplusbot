@@ -5,8 +5,9 @@ window.onload = async() => {
               
   let id = await storage.getItem("id");
      let cUser = await storage.getItem("user");
+        let token = await storage.getItem("token");
               let uId;
-              if (id && cUser) {
+              if (id && cUser && token) {
           uId = id;		
           console.log(uId);
           console.log(cUser);
@@ -50,7 +51,7 @@ window.onload = async() => {
        var xhr = new XMLHttpRequest();
             xhr.open('GET', 'https://discordapp.com/api/users/@me/guilds');
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Authorization', 'Bearer ' + window.localStorage.token);
+            xhr.setRequestHeader('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
             xhr.onload = async function(){
                 console.log('Loaded!');
 
