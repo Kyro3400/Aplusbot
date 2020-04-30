@@ -45,6 +45,23 @@ window.onload = async() => {
   }
   return uId;
     }
+    
+               async function logout(){
+                try {
+                    await window.localStorage.removeItem('token');
+                } catch(err) {
+                    console.warn(err);
+                }
+
+                try {
+                    await window.localStorage.removeItem('user');
+                } catch(err) {
+                    console.warn(err);
+                }
+
+                window.location.replace('/');
+            }
+    
           
           let id = await checkUser();	
           document.getElementById('tophi').innerText = 'Select A Server';
@@ -56,6 +73,7 @@ window.onload = async() => {
                 console.log('Loaded!');
 
                 var response = JSON.parse(xhr.response);
+                if (!response[0]) return logout();
                   console.log(response);
                           var node = document.getElementById('guilds');	
               response.forEach(async(guild) => {
