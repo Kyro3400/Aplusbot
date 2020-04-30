@@ -68,7 +68,8 @@ window.onload = async() => {
                   });
   
               document.getElementById('guilds').disabled = false;
-              document.getElementById('selectButton').disabled = false;
+              document.getElementById('selectButton').disabled = false
+                xhr.send();
                 }
           }
           await listGuilds();
