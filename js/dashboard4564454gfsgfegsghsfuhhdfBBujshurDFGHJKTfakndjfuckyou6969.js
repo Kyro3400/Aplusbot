@@ -63,7 +63,7 @@ return uId;
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(guild.name));
   li.setAttribute("text", guild.name);
-  li.setAttribute("value" guild.id);
+  li.setAttribute("value", guild.id);
   ul.appendChild(li);
                     }
                 });
