@@ -30,59 +30,18 @@
 <div id="main_content_wrap" class="outer">
 <section id="main_content" class="inner">
   <h1 id="tophi">Hello!</h1>
+	<div id"guildsArea">
+		<select id="guilds" disabled></select>
+		<a id='selectButton' class='button' onclick="if (!window.__cfRLUnblockHandlers) return false; guildFetch()" disabled>Select Server</a>
+	</div>
+	<div id="settingsArea">
+		
+	</div>
 </section>
 </div>
+<!-- Epic Script Of Glory -->
+	<script src="/js/dashboard4564454gfsgfegsghsfuhhdfBBujshurDFGHJKTfakndjfuckyou6969.js"></script>
 
-  <script>
-    	window.onload = async() => {
-  async function checkUser() {
-
-   let storage = window.localStorage;
-			
-let id = await storage.getItem("id");
-   let cUser = await storage.getItem("user");
-			let uId;
-			if (id && cUser) {
-        uId = id;		
-        console.log(uId);
-        console.log(cUser);
-document.getElementById('forkme_banner').innerText = `${cUser}`;
-			}else{
-			
-	const fragment = new URLSearchParams(window.location.hash.slice(1));
-
-    
-    if (!fragment.has("access_token")) {
-    document.getElementById('tophi').innerText = `Login Please`;
-        return;
-    }else{
-     document.getElementById('forkme_banner').innerText = `Loading....`;
-
-        const accessToken = fragment.get("access_token");
-        const tokenType = fragment.get("token_type");
-	 
-        let res = await fetch('https://discordapp.com/api/users/@me', {
-            headers: {
-                authorization: `${tokenType} ${accessToken}`
-            }
-        })
-      let response = await res.json()
-                console.log(response);
-                const { username, discriminator, id } = response;
-uId = id;
-document.getElementById('forkme_banner').innerText = `${username}#${discriminator}`;
-storage.setItem('id', uId);
-	    storage.setItem('user', `${username}#${discriminator}`);
-    }
-}
-return uId;
-  }
-	    let id = await checkUser();	
-        
-    
-	}
-    
-  </script>
 <div id="footer_wrap" class="outer">
 <footer class="inner">
 <p class="copyright">Copyright Altertrail Corporation 2020</p>
