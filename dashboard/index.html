@@ -31,8 +31,22 @@
 <section id="main_content" class="inner">
   <h1 id="tophi">Hello!</h1>
 	<div id"guildsArea">
-		<select id="guilds" disabled></select>
-		<a id='selectButton' class='button' onclick="if (!window.__cfRLUnblockHandlers) return false; guildFetch()" disabled>Select Server</a>
+<div class="container">
+    <span class="choose">Choose Gender</span>
+  
+      <div class="dropdown">
+        <div class="select">
+          <span>Select Gender</span>
+          <i class="fa fa-chevron-left"></i>
+        </div>
+        <input type="hidden" name="gender">
+        <ul class="guilds">
+        </ul>
+      </div>
+  
+  <span class="msg"></span>
+</div>
+<a id='selectButton' class='button' onclick="if (!window.__cfRLUnblockHandlers) return false; guildFetch()" disabled>Select Server</a>
 	</div>
 	<div id="settingsArea">
 		
