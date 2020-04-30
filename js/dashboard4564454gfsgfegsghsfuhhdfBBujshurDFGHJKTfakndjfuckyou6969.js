@@ -70,12 +70,12 @@ window.onload = async() => {
               document.getElementById('guilds').disabled = false;
               document.getElementById('selectButton').disabled = false;
                 }
-                xhr.send()
+                xhr.send();
 
       
                   async function guildFetch(){
                   document.getElementById('guilds').disabled = true;
-                  document.getElementById('fetchButton').disabled = true;
+                  document.getElementById('selectButton').disabled = true;
                   window.localStorage.setItem('guild', document.getElementById('guilds').value);
                   
             
