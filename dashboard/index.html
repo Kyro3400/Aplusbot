@@ -21,7 +21,7 @@
 
 <div id="header_wrap" class="outer">
 <header class="inner">
-<a id="forkme_banner" href="">Login</a>
+<a id="forkme_banner" href="https://discordapp.com/api/oauth2/authorize?client_id=582761739901206528&redirect_uri=https%3A%2F%2Faplusbot.tech%2Fdashboard&response_type=token&scope=identify%20guilds">Login</a>
 <h1 id="project_title">APlus Dashboard</h1>
 <h2 id="project_tagline">The seemingly beautiful service for your Discord.</h2>
 </header>
@@ -29,10 +29,60 @@
 
 <div id="main_content_wrap" class="outer">
 <section id="main_content" class="inner">
-<h1 id="dashboard">Dashboard</h1>
+  <h1 id="tophi">Hello!</h1>
 </section>
 </div>
 
+  <script>
+    	window.onload = async() => {
+  async function checkUser() {
+
+   let storage = window.localStorage;
+			
+let id = await storage.getItem("id");
+   let cUser = await storage.getItem("user");
+			let uId;
+			if (id && cUser) {
+        uId = id;		
+        console.log(uId);
+        console.log(cUser);
+document.getElementById('forkme_banner').innerText = `${cUser}`;
+			}else{
+			
+	const fragment = new URLSearchParams(window.location.hash.slice(1));
+
+    
+    if (!fragment.has("access_token")) {
+    document.getElementById('tophi').innerText = `Login Please`;
+        return;
+    }else{
+     document.getElementById('forkme_banner').innerText = `Loading....`;
+
+        const accessToken = fragment.get("access_token");
+        const tokenType = fragment.get("token_type");
+	 
+        let res = await fetch('https://discordapp.com/api/users/@me', {
+            headers: {
+                authorization: `${tokenType} ${accessToken}`
+            }
+        })
+      let response = await res.json()
+                console.log(response);
+                const { username, discriminator, id } = response;
+uId = id;
+document.getElementById('forkme_banner').innerText = `${username}#${discriminator}`;
+storage.setItem('id', uId);
+	    storage.setItem('user', `${username}#${discriminator}`);
+    }
+}
+return uId;
+  }
+	    let id = await checkUser();	
+        
+    
+    
+    
+  </script>
 <div id="footer_wrap" class="outer">
 <footer class="inner">
 <p class="copyright">Copyright Altertrail Corporation 2020</p>
