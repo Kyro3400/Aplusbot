@@ -55,7 +55,7 @@ return uId;
             }
         })
       let responseO = await res.json();
-			let response = JSON.stringify(responseO);
+			let response = JSON.parse(responseO);
                 console.log(response);
 		                var node = document.getElementById('guilds');	
 			response.forEach(async(guild) => {
