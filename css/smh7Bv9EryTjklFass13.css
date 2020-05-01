@@ -3,3 +3,12 @@
     right:1;
     top:0;
     border: transparent;
+}
+/* Logo area */
+  .logo {
+    position:absolute;
+    left:0;
+    top:0;
+    border: transparent;
+       
+}
