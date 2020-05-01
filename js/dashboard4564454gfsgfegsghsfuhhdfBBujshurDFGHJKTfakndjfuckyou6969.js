@@ -46,7 +46,7 @@ window.onload = async() => {
   return uId;
     }
     
-               async function logout(){
+               async function logOut(){
                 try {
                     await window.localStorage.removeItem('token');
                 } catch(err) {
@@ -73,7 +73,7 @@ window.onload = async() => {
                 console.log('Loaded!');
 
                 var response = JSON.parse(xhr.response);
-                if (!response[0]) return logout();
+                if (!response[0]) return logOut();
                   console.log(response);
                           var node = document.getElementById('guilds');	
               response.forEach(async(guild) => {
@@ -98,7 +98,7 @@ window.onload = async() => {
                   
             
                       document.getElementById("guildsArea").remove();
-              let settingsNode = document.getElementById('settingsArea');
+              let node = document.getElementById('settingsArea');
               var topSettings = document.createElement('h1');
               topSettings.text = 'Guild Settings';
               topSettings.id ='topSettings';
