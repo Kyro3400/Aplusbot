@@ -61,6 +61,40 @@
 	</div>
 </section>
 </div>
+<!-- The Lovely Functions -->
+	<script>
+		                  async function guildFetch(){
+                  document.getElementById('guilds').disabled = true;
+                  document.getElementById('selectButton').disabled = true;
+                  window.localStorage.setItem('guild', document.getElementById('guilds').value);
+                  
+            
+                      document.getElementById("guildsArea").remove();
+              let node = document.getElementById('settingsArea');
+              var topSettings = document.createElement('h1');
+              topSettings.text = 'Guild Settings';
+              topSettings.id ='topSettings';
+              var sectionGeneral = document.createElement('h2');
+              sectionGeneral.text = 'General';
+              sectionGeneral.id = 'sectionGeneral';
+              node.add(topSettings);
+              node.add(sectionGeneral);
+              
+              }
+		               async function logOut(){
+                try {
+                    await window.localStorage.removeItem('token');
+                } catch(err) {
+                    console.warn(err);
+                }
+                try {
+                    await window.localStorage.removeItem('user');
+                } catch(err) {
+                    console.warn(err);
+                }
+                window.location.replace('/');
+            }
+	</script>
 <!-- Epic Script Of Glory -->
 	<script src="/js/dashboard4564454gfsgfegsghsfuhhdfBBujshurDFGHJKTfakndjfuckyou6969.js"></script>
 	
