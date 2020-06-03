@@ -69,16 +69,7 @@
                   window.localStorage.setItem('guild', document.getElementById('guilds').value);
                   
             
-                      document.getElementById("guildsArea").remove();
-              let node = document.getElementById('settingsArea');
-              var topSettings = document.createElement('h1');
-              topSettings.text = 'Guild Settings';
-              topSettings.id ='topSettings';
-              var sectionGeneral = document.createElement('h2');
-              sectionGeneral.text = 'General';
-              sectionGeneral.id = 'sectionGeneral';
-              node.appendChild(topSettings);
-              node.appendChild(sectionGeneral);
+                     window.location.replace("/settings/home");
               
               }
 		               async function logOut(){
