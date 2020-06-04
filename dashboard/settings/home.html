@@ -327,7 +327,7 @@ color: #333;
             }
   
   async function changeDetected(){
-  
+  if (document.getElementById("Confirmation")) return;
 	 async function saveChanges(){
 let elements = [document.getElementById('prefix'), document.getElementById('mod-only')];
 		 let data ={}
