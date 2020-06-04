@@ -56,9 +56,10 @@
     </div>
 </nav>
 
-  <style>
+ <style>
+
     .Confirmation {
-      visibility: hidden;
+        visibility: visible;
   z-index: 2000;
   width: 100%;
   max-width: 1200px;
@@ -90,6 +91,8 @@
   -o-transition: bottom 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55), background-color 400ms ease-out;
   -ms-transition: bottom 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55), background-color 400ms ease-out;
   transition: bottom 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55), background-color 400ms ease-out;
+  -webkit-animation: popup 1s;
+  animation: popup 1s;
 }
 @media (max-width: 640px) {
   .Confirmation {
@@ -100,6 +103,7 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    animation: popup 0.7s
   }
 }
 .Confirmation.ConfirmationRed {
@@ -131,8 +135,9 @@
   -ms-flex: 1;
   flex: 1;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
+  font-family:Arial;
   margin-right: auto;
 }
 @media (max-width: 640px) {
@@ -165,10 +170,88 @@
   padding: 10px;
   margin-left: 10px;
 }
-    .Confirmation .show {
+.Confirmation .ConfirmationButtons a {
+  padding: 10px;
+  margin-left: 10px;
+  color: "fff"
+}
+.Confirmation:target .Confirmation{
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+  opacity: 1;
+  animation: popup 0.7s;
+}
+
+.Confirmation .ConfirmationClose {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.Confirmation .ConfirmationButtons .ButtonsClose {
+
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+
+}
+
+
+
+.Confirmation .ConfirmationText .TextClose {
+
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+
+}
+
+.Confirmation .animate {
+  animation: popup 1s;
+}
+
+.Confirmation .show {
+  visibility: visible;
+  -webkit-animation: popup 0.7s;
+  animation: popup 0.7s;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Add animation (fade in the popup) */
@@ -181,7 +264,46 @@
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-    
+.saveShadow {
+	background-color:#32a852;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:6px 18px;
+	text-decoration:none;
+}
+.saveShadow:hover {
+	background-color:#32a852;
+}
+.saveShadow:active {
+	position:relative;
+	top:1px;
+}
+.cancelTransparent {
+	background-color:transparent;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:6px 18px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.cancelTransparent:hover {
+	background-color:transparent;
+}
+.cancelTransparent:active {
+	position:relative;
+	top:1px;
+}
+
   </style>
   
 </header>
@@ -190,16 +312,21 @@
 <div id="main_content_wrap" class="outer">
 <section id="main_content" class="inner">
   <h2 id="topheader">Settings</h2>
-<form>
+<div id="option-section">
+	<form>
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Prefix" id="prefixinput" disabled>
+    <input type="text" class="form-control" placeholder="Prefix" id="prefix" disabled>
   </div>
   <form>
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="mod-only" disabled>
+  <label class="custom-control-label" for="mod-only">Moderator Only</label>
+</div>
 
-  <div class="Confirmation"><div class="ConfirmationText" id="Confirmation">Changes detected! Please save or cancel.</div>
-    <div class="ConfirmationButtons">
-    <button class="sc-hMqMXs gEaccQ" color="#ffffff">Cancel</button>
-    <button class="sc-hMqMXs bBUjsW" color="#44b37f">Save</button></div></div>
+	  
+	  </div>
+ <div id="ConfirmationArea"></div>
+
   </section>
   </div>
   
@@ -210,6 +337,20 @@ changeDetected();
 })
   </script>
   
+	
+	<!-- On StartUp -->
+	<script>
+window.onload(async () => {
+let localStorage = window.localStorage;
+	if (!localStorage.token || !localStorage.user || !localStorage.guild || !localStorage.id) return window.location.replace("/");
+	// if (!client.guilds.get(localStorage.guild) window.open(...)
+// var defaults = gatewayUwU;
+	
+	document.getElementById("prefix").disabled = false;
+	document.getElementById("mod-only").disabled = false;
+	
+})
+	</script>
   
   
   <!-- The Lovely Functions Two -->
@@ -230,8 +371,129 @@ changeDetected();
   
   async function changeDetected(){
   
-    var conf = document.getElementById("Confirmation");
-  conf.classList.toggle("show");
+	 async function saveChanges(){
+let elements = [document.getElementById('prefix'), document.getElementById('mod-only')];
+		 let data ={}
+		await elements.forEach(async(e) => {
+if (e.value === defaults[e.id]) return;
+			data[e.id] === value;
+			
+		})
+		 if (data.length >= 1) {
+              /* XML Request To Gateway */
+			 console.log('Request to gateway.');
+		 }
+		 
+		 closeConfirmation();
+		 
+	 }
+	  
+	  
+ async function closeConfirmation(){
+
+
+
+async function removeThing(){
+  let ConfArea = document.getElementById("Confirmation");
+
+ConfArea.childNodes.forEach(child => {
+
+ConfArea.removeChild(child);
+})
+ConfArea.parentNode.removeChild(ConfArea);
+}
+async function createThing(){
+let elem = document.createElement('div');
+  elem.id = "Confirmation";
+  elem.className = "Confirmation";
+  let elem2 = document.createElement('div');
+  elem2.id = "confText"
+  elem2.className = "ConfirmationText";
+  elem2.innerText = "Careful — you have unsaved changes!";
+  elem.appendChild(elem2);
+
+  let elem3 = document.createElement('div');
+  elem3.id = "confButtons";
+  elem3.className = "ConfirmationButtons";
+
+  elem.appendChild(elem3);
+
+  let button1 = document.createElement("button");
+  button1.id = "confButton1";
+  button1.className = "cancelTransparent";
+  button1.innerText = "Cancel";
+  elem3.appendChild(button1);
+
+  
+  let button2 = document.createElement("button");
+  button2.id = "confButton2";
+  button2.className = "saveShadow";
+  button2.innerText = "Save";
+  
+  elem3.appendChild(button2);
+
+ 
+
+    let node = document.getElementById("ConfirmationArea");
+
+
+    node.appendChild(elem);
+
+    let b1 = document.getElementById("confButton1");
+    let b2 = document.getElementById("confButton2");
+    b2.onclick=closeConfirmation;
+    b1.onclick =closeConfirmation;
+}
+await removeThing();
+await createThing();
+setTimeout(async () => {removeThing()}, 1000);
+
+}
+
+let elem = document.createElement('div');
+  elem.id = "Confirmation";
+  elem.className = "Confirmation";
+  let elem2 = document.createElement('div');
+  elem2.id = "confText"
+  elem2.className = "ConfirmationText";
+  elem2.innerText = "Careful — you have unsaved changes!";
+  elem.appendChild(elem2);
+
+  let elem3 = document.createElement('div');
+  elem3.id = "confButtons";
+  elem3.className = "ConfirmationButtons";
+
+  elem.appendChild(elem3);
+
+  let button1 = document.createElement("button");
+  button1.id = "confButton1";
+  button1.className = "cancelTransparent";
+  button1.innerText = "Cancel";
+  elem3.appendChild(button1);
+
+  
+  let button2 = document.createElement("button");
+  button2.id = "confButton2";
+  button2.className = "saveShadow";
+  button2.innerText = "Save";
+  
+  elem3.appendChild(button2);
+
+ 
+
+    let node = document.getElementById("ConfirmationArea");
+
+
+    node.appendChild(elem);
+
+    let b1 = document.getElementById("confButton1");
+    let b2 = document.getElementById("confButton2");
+    b2.onclick=closeConfirmation;
+    b1.onclick =closeConfirmation;
+    return;
+
+
+}
     
   }
   </script>
