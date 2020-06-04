@@ -309,49 +309,8 @@ color: #333;
 </header>
 </div>
 
-<div id="main_content_wrap" class="outer">
-<section id="main_content" class="inner">
-  <h2 id="topheader">Settings</h2>
-<div id="option-section">
-	<form>
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Prefix" id="prefix" onchange="changeDetected()" disabled>
-  </div>
-  <form>
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="mod-only" onchange="changeDetected()" disabled>
-  <label class="custom-control-label" for="mod-only">Moderator Only</label>
-</div>
-
-	  
-	  </div>
- <div id="ConfirmationArea"></div>
-
-  </section>
-  </div>
-  
-  <!-- Detect Changes -->
- <script>
-window.onchange = changeDetected();
-	</script>
-  
 	
-	<!-- On StartUp -->
-	<script>
-window.onload = async () => {
-let localStorage = window.localStorage;
-	if (!localStorage.token || !localStorage.user || !localStorage.guild || !localStorage.id) return window.location.replace("/");
-	// if (!client.guilds.get(localStorage.guild) window.open(...)
-// var defaults = gatewayUwU;
-	
-	document.getElementById("prefix").disabled = false;
-	document.getElementById("mod-only").disabled = false;
-	
-}
-	</script>
-  
-  
-  <!-- The Lovely Functions Two -->
+	  <!-- The Lovely Functions Two -->
 <script>
                  async function logOut(){
                 try {
@@ -495,4 +454,51 @@ let elem = document.createElement('div');
     
   }
   </script>
+	
+	
+	
+	
+<div id="main_content_wrap" class="outer">
+<section id="main_content" class="inner">
+  <h2 id="topheader">Settings</h2>
+<div id="option-section">
+	<form>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Prefix" id="prefix" onchange="changeDetected()" disabled>
+  </div>
+  <form>
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="mod-only" onchange="changeDetected()" disabled>
+  <label class="custom-control-label" for="mod-only">Moderator Only</label>
+</div>
+
+	  
+	  </div>
+ <div id="ConfirmationArea"></div>
+
+  </section>
+  </div>
+  
+  <!-- Detect Changes -->
+ <script>
+window.onchange = changeDetected();
+	</script>
+  
+	
+	<!-- On StartUp -->
+	<script>
+window.onload = async () => {
+let localStorage = window.localStorage;
+	if (!localStorage.token || !localStorage.user || !localStorage.guild || !localStorage.id) return window.location.replace("/");
+	// if (!client.guilds.get(localStorage.guild) window.open(...)
+// var defaults = gatewayUwU;
+	
+	document.getElementById("prefix").disabled = false;
+	document.getElementById("mod-only").disabled = false;
+	
+}
+	</script>
+  
+  
+
   </html>
