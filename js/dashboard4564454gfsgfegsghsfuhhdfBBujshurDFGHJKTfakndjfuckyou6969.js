@@ -90,7 +90,9 @@ window.onload = async() => {
                 }
                 xhr.send();
 
-      
+    
+    		$('body').addClass('loaded');
+    
                   async function guildFetch(){
                   document.getElementById('guilds').disabled = true;
                   document.getElementById('selectButton').disabled = true;
