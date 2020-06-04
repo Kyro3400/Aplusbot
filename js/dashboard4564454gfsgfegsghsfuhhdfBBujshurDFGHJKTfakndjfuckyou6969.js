@@ -87,7 +87,8 @@ window.onload = async() => {
   
               document.getElementById('guilds').disabled = false;
               document.getElementById('selectButton').disabled = false;
-                }
+             $("select").select2();   
+            }
                await xhr.send();
 
            setTimeout(async () => {
