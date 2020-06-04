@@ -331,12 +331,14 @@ color: #333;
   </div>
   
   <!-- Detect Changes -->
- 
+ <script>
+window.onchange = changeDetected();
+	</script>
   
 	
 	<!-- On StartUp -->
 	<script>
-window.onload(async () => {
+window.onload = async () => {
 let localStorage = window.localStorage;
 	if (!localStorage.token || !localStorage.user || !localStorage.guild || !localStorage.id) return window.location.replace("/");
 	// if (!client.guilds.get(localStorage.guild) window.open(...)
@@ -345,7 +347,7 @@ let localStorage = window.localStorage;
 	document.getElementById("prefix").disabled = false;
 	document.getElementById("mod-only").disabled = false;
 	
-})
+}
 	</script>
   
   
