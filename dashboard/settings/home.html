@@ -315,11 +315,11 @@ color: #333;
 <div id="option-section">
 	<form>
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Prefix" id="prefix" disabled>
+    <input type="text" class="form-control" placeholder="Prefix" id="prefix" onchange="changeDetected()" disabled>
   </div>
   <form>
 <div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="mod-only" disabled>
+  <input type="checkbox" class="custom-control-input" id="mod-only" onchange="changeDetected()" disabled>
   <label class="custom-control-label" for="mod-only">Moderator Only</label>
 </div>
 
@@ -331,11 +331,7 @@ color: #333;
   </div>
   
   <!-- Detect Changes -->
-  <script>
-window.onchange(async()=>{
-changeDetected();
-})
-  </script>
+ 
   
 	
 	<!-- On StartUp -->
