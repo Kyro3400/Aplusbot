@@ -88,7 +88,7 @@ window.onload = async() => {
               document.getElementById('guilds').disabled = false;
               document.getElementById('selectButton').disabled = false;
                 }
-                xhr.send();
+               await xhr.send();
 
     
     		$('body').addClass('loaded');
