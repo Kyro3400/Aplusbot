@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/css/smh7Bv9EryTjklFass13.css">
 <link rel="stylesheet" type="text/css" href="/css/gwesgryfuhgeraigufiuarghiugrheiuagrhiograheger85646848686atyugfrhgerhi.css">
 <link rel="stylesheet" type="text/css" href="https://altertrail.com/assets/css/buttonsv8.css">
+<link rel="stylesheet" href="/css/jsjsloaderepic_altertrail.css">
 	<!-- Le Bootstrap UwU -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -309,6 +310,13 @@ color: #333;
 </header>
 </div>
 
+	<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
 	
 	  <!-- The Lovely Functions Two -->
 <script>
@@ -456,7 +464,11 @@ let elem = document.createElement('div');
 	
 	
 	
-	
+	<style>
+		#main_content_wrap {
+			position: fixed;
+			height: 100%;
+	</style>
 <div id="main_content_wrap" class="outer">
 <section id="main_content" class="inner">
   <h2 id="topheader">Settings</h2>
@@ -490,12 +502,30 @@ let localStorage = window.localStorage;
 	// if (!client.guilds.get(localStorage.guild) window.open(...)
 // var defaults = gatewayUwU;
 	
-	document.getElementById("prefix").disabled = false;
-	document.getElementById("mod-only").disabled = false;
+	await document.getElementById("prefix").disabled = false;
+	await document.getElementById("mod-only").disabled = false;
 	
+	setTimeout(async () => {
+    		$('body').addClass('loaded');
+           }, 3000);
 }
 	</script>
   
+		<style>
+		#footer_positioner {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+	
+	<div id="footer_positioner">	
+<div id="footer_wrap" class="outer">
+<footer class="inner">
+<p class="copyright">Copyright Altertrail Corporation 2020</p>
+</footer>
+</div>
+	</div>
   
-
+	</body>
   </html>
